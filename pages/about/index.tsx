@@ -1,9 +1,5 @@
-import { useRouter } from "next/router";
 import { GetStaticProps } from "next";
-import styled from "styled-components";
 import axios from "axios";
-
-import { MainContainer } from "./styles";
 
 interface IProps {
   data: string;
@@ -19,7 +15,9 @@ const getUserIp = () =>
       console.log(error);
     });
 
-const About = ({ data }: IProps) => <MainContainer>{data}</MainContainer>;
+const About = ({ data }: IProps) => {
+  return <div>{data}</div>;
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const result = await getUserIp();
