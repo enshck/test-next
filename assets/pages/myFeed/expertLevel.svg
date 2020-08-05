@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="12.828" height="21.414" viewBox="0 0 12.828 21.414">
-  <g id="chevrons-down" transform="translate(18.414 19) rotate(180)">
-    <path id="Path_45" data-name="Path 45" d="M7,13l5,5,5-5" fill="none" stroke="#aaa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-    <path id="Path_46" data-name="Path 46" d="M7,6l5,5,5-5" fill="none" stroke="#aaa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-    <path id="Path_541" data-name="Path 541" d="M7,6l5,5,5-5" transform="translate(0 -7)" fill="none" stroke="#aaa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-  </g>
-</svg>

@@ -1,33 +1,51 @@
-import React, { Fragment } from "react";
-import styled from "styled-components";
+import { useState } from "react";
+import { useQuery } from "@apollo/client";
 
-import { Container } from "common/styles";
-import HowItWorks from "./blocks/HowItWorks";
-import SubHeader from "./blocks/SubHeader";
-import WhyUs from "./blocks/WhyUs/index";
-import AboutUs from "./blocks/AboutUs";
-import OurParthners from "./blocks/OurPartners";
-import SomeOfOurServices from "./blocks/SomeOfOurServices";
+import { MainContainer, ListContainer } from "./styles";
+import { GET_LIST_TOP_STORIES } from "apollo/requests";
 import Header from "components/Header";
 import Footer from "components/Footer";
+import NewsList from "./newsList";
+import Spinner from "components/spinner";
 
-const Wrapper = styled.div``;
+export interface IStory {
+  by: {
+    id: string;
+    __typename: string;
+  };
+  id: number;
+  score: number;
+  time: number;
+  title: string;
+  url: string;
+  rawId: number;
+}
 
-const HomePageContent = () => {
+const HomePage = () => {
+  const [changedPage, setChangedPage] = useState(1);
+  const { data, loading } = useQuery(GET_LIST_TOP_STORIES, {
+    variables: {
+      page: changedPage,
+    },
+  });
+
   return (
-    <Wrapper>
+    <MainContainer>
       <Header />
-      <SubHeader />
-      <Container>
-        <HowItWorks />
-        <WhyUs />
-        <SomeOfOurServices />
-        <AboutUs />
-        <OurParthners />
-      </Container>
+      <ListContainer>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <NewsList
+            changedStories={data}
+            changedPage={changedPage}
+            setChangedPage={setChangedPage}
+          />
+        )}
+      </ListContainer>
       <Footer />
-    </Wrapper>
+    </MainContainer>
   );
 };
 
-export default HomePageContent;
+export default HomePage;
