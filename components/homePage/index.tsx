@@ -34,7 +34,9 @@ const HomePage = () => {
       <Header />
       <ListContainer>
         {loading ? (
-          <Spinner />
+          <div>
+            <Spinner />
+          </div>
         ) : (
           <NewsList
             changedStories={data}

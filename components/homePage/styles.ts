@@ -12,4 +12,5 @@ export const ListContainer = styled.div`
   width: 100%;
   height: calc(100vh - 120px);
   background: rgb(246, 246, 239);
+  position: relative;
 `;
